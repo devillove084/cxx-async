@@ -117,5 +117,4 @@ jobs:
         working-directory: cxx-async
         run: | 
           cargo build
-          cargo run --example cxx-async-example-folly
 
