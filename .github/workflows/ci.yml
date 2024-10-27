@@ -68,6 +68,8 @@ jobs:
             binutils-dev \
             libjemalloc-dev \
             libiberty-dev \
+            libc++-dev \
+            libc++abi-dev
       
       - name: Build fmt
         run: |
@@ -82,7 +84,12 @@ jobs:
         run: |
           git clone https://github.com/fastfloat/fast_float.git && cd fast_float
           rm _build -rf; mkdir _build -p && cd _build
-          cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_FLAGS="-O3 -stdlib=libc++ -lc++abi" -DBUILD_SHARED_LIBS=TRUE -DBUILD_BENCHMARKS=OFF
+          cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++ \
+          -DCMAKE_C_COMPILER=/usr/bin/clang \
+          -DCMAKE_CXX_FLAGS="-O3 -stdlib=libc++" \
+          -DCMAKE_EXE_LINKER_FLAGS="-lc++abi" \
+          -DBUILD_SHARED_LIBS=TRUE \
+          -DBUILD_BENCHMARKS=OFF
           make -j$(nproc)
           sudo make install
           sudo ldconfig
