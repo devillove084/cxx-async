@@ -60,7 +60,7 @@ jobs:
             libgflags-dev \
             libgoogle-glog-dev \
             libssl-dev \
-            libunwind-14-dev \
+            libunwind-dev \
             liblz4-dev \
             liblzma-dev \
             zlib1g-dev \
