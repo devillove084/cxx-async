@@ -84,7 +84,7 @@ jobs:
           rm _build -rf; mkdir _build -p && cd _build
           cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++ \
           -DCMAKE_C_COMPILER=/usr/bin/clang \
-          -DCMAKE_CXX_FLAGS="-O3 -stdlib=libc++" \
+          -DCMAKE_CXX_FLAGS="-O3" \
           -DBUILD_SHARED_LIBS=TRUE \
           -DBUILD_BENCHMARKS=OFF
           make -j$(nproc)
@@ -100,7 +100,6 @@ jobs:
           cmake .. -DBUILD_SHARED_LIBS=ON \
           -DCMAKE_CXX_COMPILER=/usr/bin/clang++ \
           -DCMAKE_C_COMPILER=/usr/bin/clang \
-          -DCMAKE_CXX_FLAGS="-O3 -stdlib=libc++" \
           -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
           -DBUILD_BENCHMARKS=OFF \
           -DCMAKE_BUILD_TYPE=Release \
